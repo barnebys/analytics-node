@@ -1,6 +1,6 @@
 {
   "name": "@barnebys/analytics-node",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "test/index.js",
   "license": "MIT",
   "scripts": {
