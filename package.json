@@ -1,0 +1,20 @@
+{
+  "name": "analytics-node",
+  "version": "0.0.1",
+  "main": "test/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "yarn run build && mocha",
+    "build": "flow-remove-types src/ -d lib/",
+    "prepublish": "yarn run build"
+  },
+  "dependencies": {
+    "http-build-query": "^0.7.0",
+    "md5": "^2.2.1"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.89.0",
+    "flow-remove-types": "^1.2.3",
+    "mocha": "^5.2.0"
+  }
+}
