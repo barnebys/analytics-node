@@ -1,5 +1,5 @@
 [![Latest Stable Version](https://poser.pugx.org/barnebys/analytics-node/v/stable)](https://packagist.org/packages/barnebys/analytics-node)
-[![Build Status](https://api.travis-ci.org/barnebys/analytics-node.svg?branch=master)
+[![Build Status](https://travis-ci.org/barnebys/analytics-node.svg?branch=master)](https://travis-ci.org/barnebys/analytics-node)
 
 
 # Barnebys Analytics

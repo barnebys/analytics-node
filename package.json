@@ -1,5 +1,5 @@
 {
-  "name": "analytics-node",
+  "name": "@barnebys/analytics-node",
   "version": "0.0.1",
   "main": "test/index.js",
   "license": "MIT",
