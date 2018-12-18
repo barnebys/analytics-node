@@ -8,5 +8,4 @@ cache: yarn
 
 install: yarn
 script:
-  - yarn lint
   - yarn test
