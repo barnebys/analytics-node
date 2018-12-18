@@ -6,11 +6,15 @@
 
 This is an helper for Node to build tracking URL for [Barnebys Analytics](https://github.com/barnebys/analytics) with ease.
 
+## Install
+
+`yarn install @barnebys/analytics-node`
+
 ## Track clicks
 
 ```
 // Create the URL Builder with your tracking domain & secret
-const { UrlBuilder } = require("analytics-node");
+const { UrlBuilder } = require("@barnebys/analytics-node");
 const urlBuilder = new UrlBuilder("analytics.mydomain.sh", "secret");
 
 urlBuilder.programId = "123";
@@ -27,7 +31,7 @@ const url = urlBuilder.createURL
 ## Track leads
 
 ```
-const { UrlBuilder } = require("analytics-node");
+const { UrlBuilder } = require("@barnebys/analytics-node");
 const urlBuilder = new UrlBuilder("analytics.mydomain.sh", "secret");
 ...
 urlBuilder.affiliate = true;

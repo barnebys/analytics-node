@@ -1,6 +1,6 @@
 {
   "name": "@barnebys/analytics-node",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "test/index.js",
   "license": "MIT",
   "scripts": {
@@ -8,6 +8,9 @@
     "build": "flow-remove-types src/ -d lib/",
     "prepublish": "yarn run build"
   },
+  "files": [
+    "lib/*"
+  ],
   "dependencies": {
     "http-build-query": "^0.7.0",
     "md5": "^2.2.1"
