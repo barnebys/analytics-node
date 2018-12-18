@@ -25,7 +25,7 @@ urlBuilder.dimension2 = "b";
 urlBuilder.dimension3 = "c";
 
 // Get the signed tracking URL
-const url = urlBuilder.createURL
+const url = urlBuilder.createURL()
 ```
 
 ## Track leads
@@ -82,7 +82,7 @@ const impression = new Impression(
 
 
 // Get the URL for the tracking pixel 
-const url = impression.buildURL
+const url = impression.url
 
 // Or output image tag for lazy load
 const tag = impression.image

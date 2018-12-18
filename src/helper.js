@@ -1,7 +1,8 @@
 // @flow
 
-const md5 = require("md5");
-const httpBuildQuery = require("http-build-query");
+//const md5 = require("md5");
+const crypto = require("crypto");
+const querystring = require("querystring");
 
 module.exports = class UrlHelper {
   secret: string;
@@ -13,7 +14,14 @@ module.exports = class UrlHelper {
   }
 
   get query(): string {
-    const query = "/?" + httpBuildQuery(this.params);
-    return query + "&s=" + md5(this.secret + query);
+    const query = "/?" + querystring.stringify(this.params);
+    return (
+      query +
+      "&s=" +
+      crypto
+        .createHash("md5")
+        .update(this.secret + query)
+        .digest("hex")
+    );
   }
 };

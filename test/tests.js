@@ -1,4 +1,4 @@
-var assert = require("assert");
+const assert = require("assert");
 
 const { UrlBuilder, Impression } = require("../lib");
 
@@ -13,7 +13,7 @@ describe("URL Builder", () => {
     urlBuilder.dimension3 = "c";
 
     assert.equal(
-      urlBuilder.createURL,
+      urlBuilder.createURL(),
       "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&s=3ea175e5980c6f1f13a46e7aade1b622"
     );
   });
@@ -34,7 +34,7 @@ describe("Impression", () => {
       );
 
       assert.equal(
-        impression.buildURL,
+        impression.url,
         "https://analytics.barnebys.sh/?p=123&k=impression&d1=a&d2=b&d3=c&d4=d&d5=e&s=c77633cd4932a98243a0edd86dc82d97"
       );
     });

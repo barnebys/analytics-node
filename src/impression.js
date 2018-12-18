@@ -4,7 +4,7 @@ const util = require("util");
 const UrlBuilder = require("./builder");
 
 module.exports = class Impression {
-  buildURL: string;
+  url: string;
 
   constructor(
     UrlBuilder: UrlBuilder,
@@ -22,11 +22,7 @@ module.exports = class Impression {
     UrlBuilder.dimension3 = dimension3;
     UrlBuilder.dimension4 = dimension4;
     UrlBuilder.dimension5 = dimension5;
-    this.buildURL = UrlBuilder.createURL;
-  }
-
-  get url() {
-    return this.buildURL;
+    this.url = UrlBuilder.createURL();
   }
 
   get image() {

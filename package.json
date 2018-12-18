@@ -11,10 +11,6 @@
   "files": [
     "lib/*"
   ],
-  "dependencies": {
-    "http-build-query": "^0.7.0",
-    "md5": "^2.2.1"
-  },
   "devDependencies": {
     "flow-bin": "^0.89.0",
     "flow-remove-types": "^1.2.3",

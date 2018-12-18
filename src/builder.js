@@ -49,7 +49,7 @@ module.exports = class UrlBuilder {
     this.params["d5"] = value;
   }
 
-  get createURL(): string {
+  createURL(): string {
     const urlHelper = new UrlHelper(this.params, this.secret);
 
     return "https://" + this.domain + urlHelper.query;
