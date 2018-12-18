@@ -1,7 +1,7 @@
 {
   "name": "@barnebys/analytics-node",
-  "version": "0.0.5",
-  "main": "test/index.js",
+  "version": "0.0.6",
+  "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
     "test": "yarn run build && mocha",
