@@ -26,7 +26,7 @@ module.exports = class UrlBuilder {
   }
 
   set isAffiliate(affiliate: boolean) {
-    this.params["a"] = affiliate;
+    this.params["a"] = affiliate ? 1 : 0;
   }
 
   set dimension1(value: ?string) {

@@ -2,7 +2,7 @@ declare type params = {
   p: string,
   k: string,
   url: string,
-  a: boolean,
+  a: number,
   d1: ?string,
   d2: ?string,
   d3: ?string,
