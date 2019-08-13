@@ -19,13 +19,28 @@ describe("URL Builder", () => {
   });
 });
 
-describe("Affiliate URLs", () => {
+describe("Affiliate URLs 1", () => {
     it("should match url with affiliate flag", () => {
         const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
         urlBuilder.programId = "123";
         urlBuilder.kind = "click-test";
         urlBuilder.url = "http://www.barnebys.com/";
         urlBuilder.isAffiliate = true
+
+        assert.equal(
+            urlBuilder.createURL(),
+            "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&a=1&s=840aac412069de81e28ad99b8739bbb3"
+        );
+    });
+});
+
+describe("Affiliate URLs 2", () => {
+    it("should match url with affiliate flag", () => {
+        const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+        urlBuilder.programId = "123";
+        urlBuilder.kind = "click-test";
+        urlBuilder.url = "http://www.barnebys.com/";
+        urlBuilder.affiliate = true
 
         assert.equal(
             urlBuilder.createURL(),

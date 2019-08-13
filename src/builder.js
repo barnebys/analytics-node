@@ -25,6 +25,10 @@ module.exports = class UrlBuilder {
     this.params["url"] = url;
   }
 
+  set affiliate(affiliate: boolean) {
+    this.params["a"] = affiliate ? 1 : 0;
+  }
+
   set isAffiliate(affiliate: boolean) {
     this.params["a"] = affiliate ? 1 : 0;
   }
