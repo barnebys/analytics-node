@@ -13,7 +13,8 @@ module.exports = class Impression {
     dimension2: ?string,
     dimension3: ?string,
     dimension4: ?string,
-    dimension5: ?string
+    dimension5: ?string,
+    isSponsored: ?boolean
   ) {
     UrlBuilder.programId = programId;
     UrlBuilder.kind = "impression";
@@ -22,6 +23,7 @@ module.exports = class Impression {
     UrlBuilder.dimension3 = dimension3;
     UrlBuilder.dimension4 = dimension4;
     UrlBuilder.dimension5 = dimension5;
+    UrlBuilder.isSponsored = isSponsored;
     this.url = UrlBuilder.createURL();
   }
 

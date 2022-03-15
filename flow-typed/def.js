@@ -7,5 +7,6 @@ declare type params = {
   d2: ?string,
   d3: ?string,
   d4: ?string,
-  d5: ?string
+  d5: ?string,
+  sp: ?boolean,
 };
