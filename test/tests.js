@@ -19,34 +19,52 @@ describe("URL Builder", () => {
   });
 });
 
-describe("Affiliate URLs 1", () => {
-    it("should match url with affiliate flag", () => {
-        const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
-        urlBuilder.programId = "123";
-        urlBuilder.kind = "click-test";
-        urlBuilder.url = "http://www.barnebys.com/";
-        urlBuilder.isAffiliate = true
+describe("URL Builder with sponsored flag", () => {
+  it("should match url with dimensions & sponsored", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.dimension1 = "a";
+    urlBuilder.dimension2 = "b";
+    urlBuilder.dimension3 = "c";
+    urlBuilder.isSponsored = true;
 
-        assert.equal(
-            urlBuilder.createURL(),
-            "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&a=1&s=840aac412069de81e28ad99b8739bbb3"
-        );
-    });
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&s=e2636749cbc87781f14c908f14faf2c0"
+    );
+  });
+});
+
+describe("Affiliate URLs 1", () => {
+  it("should match url with affiliate flag", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.isAffiliate = true;
+
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&a=1&s=840aac412069de81e28ad99b8739bbb3"
+    );
+  });
 });
 
 describe("Affiliate URLs 2", () => {
-    it("should match url with affiliate flag", () => {
-        const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
-        urlBuilder.programId = "123";
-        urlBuilder.kind = "click-test";
-        urlBuilder.url = "http://www.barnebys.com/";
-        urlBuilder.affiliate = true
+  it("should match url with affiliate flag", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.affiliate = true;
 
-        assert.equal(
-            urlBuilder.createURL(),
-            "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&a=1&s=840aac412069de81e28ad99b8739bbb3"
-        );
-    });
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&a=1&s=840aac412069de81e28ad99b8739bbb3"
+    );
+  });
 });
 
 describe("Impression", () => {
@@ -65,7 +83,7 @@ describe("Impression", () => {
 
       assert.equal(
         impression.url,
-        "https://analytics.barnebys.sh/?p=123&k=impression&d1=a&d2=b&d3=c&d4=d&d5=e&s=c77633cd4932a98243a0edd86dc82d97"
+        "https://analytics.barnebys.sh/?p=123&k=impression&d1=a&d2=b&d3=c&d4=d&d5=e&sp=0&s=d76dec529c1a2bc523ecdf1be4fbc035"
       );
     });
   });
@@ -85,7 +103,7 @@ describe("Impression", () => {
 
       assert.equal(
         impression.image,
-        '<img data-src="https://analytics.barnebys.sh/?p=123&k=impression&d1=a&d2=b&d3=c&d4=d&d5=e&s=c77633cd4932a98243a0edd86dc82d97" class="" />'
+        '<img data-src="https://analytics.barnebys.sh/?p=123&k=impression&d1=a&d2=b&d3=c&d4=d&d5=e&sp=0&s=d76dec529c1a2bc523ecdf1be4fbc035" class="" />'
       );
     });
   });

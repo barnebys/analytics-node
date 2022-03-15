@@ -53,6 +53,10 @@ module.exports = class UrlBuilder {
     this.params["d5"] = value;
   }
 
+  set isSponsored(sponsored: boolean) {
+    this.params["sp"] = sponsored ? 1 : 0;
+  }
+
   createURL(): string {
     const urlHelper = new UrlHelper(this.params, this.secret);
 
