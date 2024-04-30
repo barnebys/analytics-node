@@ -57,6 +57,10 @@ module.exports = class UrlBuilder {
     this.params["sp"] = sponsored ? 1 : 0;
   }
 
+  set dealType(dealType: ?string) {
+    this.params["dt"] = dealType;
+  }
+
   createURL(): string {
     const urlHelper = new UrlHelper(this.params, this.secret);
 
