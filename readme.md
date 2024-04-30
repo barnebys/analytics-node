@@ -1,7 +1,6 @@
 [![Latest Stable Version](https://poser.pugx.org/barnebys/analytics-node/v/stable)](https://packagist.org/packages/barnebys/analytics-node)
 [![Build Status](https://travis-ci.org/barnebys/analytics-node.svg?branch=master)](https://travis-ci.org/barnebys/analytics-node)
 
-
 # Barnebys Analytics
 
 This is an helper for Node to build tracking URL for [Barnebys Analytics](https://github.com/barnebys/analytics) with ease.
@@ -24,6 +23,9 @@ urlBuilder.dimension1 = "a";
 urlBuilder.dimension2 = "b";
 urlBuilder.dimension3 = "c";
 
+urlBuilder.isSponsored = <boolean>;
+urlBuilder.dealType = <string>;
+
 // Get the signed tracking URL
 const url = urlBuilder.createURL()
 ```
@@ -36,14 +38,13 @@ const urlBuilder = new UrlBuilder("analytics.mydomain.sh", "secret");
 ...
 urlBuilder.affiliate = true;
 ...
-``` 
+```
 
 ## Impressions
 
-Generate the URL from PHP and use a lazy loader that loads the tracking pixel 
-when visible in the browser window. If you do not have a compatible lazy loader we 
-recommend using this [lazy loader](https://github.com/verlok/lazyload) which is written in vanilla js. 
-
+Generate the URL from PHP and use a lazy loader that loads the tracking pixel
+when visible in the browser window. If you do not have a compatible lazy loader we
+recommend using this [lazy loader](https://github.com/verlok/lazyload) which is written in vanilla js.
 
 For most compatibility - place the script below before your `</body>` tag.
 
@@ -81,12 +82,10 @@ const impression = new Impression(
 );
 
 
-// Get the URL for the tracking pixel 
+// Get the URL for the tracking pixel
 const url = impression.url
 
 // Or output image tag for lazy load
 const tag = impression.image
 
 ```
-
-

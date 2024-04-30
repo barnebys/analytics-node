@@ -35,6 +35,22 @@ describe("URL Builder with sponsored flag", () => {
       "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&s=e2636749cbc87781f14c908f14faf2c0"
     );
   });
+  it("should handle dealType dimension", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.dimension1 = "a";
+    urlBuilder.dimension2 = "b";
+    urlBuilder.dimension3 = "c";
+    urlBuilder.isSponsored = true;
+    urlBuilder.dealType = "1";
+
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&dt=1&s=db8c86fbbf9dce90b837a976feff302b"
+    );
+  });
 });
 
 describe("Affiliate URLs 1", () => {
