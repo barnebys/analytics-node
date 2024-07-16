@@ -61,6 +61,14 @@ module.exports = class UrlBuilder {
     this.params["dt"] = dealType;
   }
 
+  set source(source: ?string) {
+    this.params["source"] = source;
+  }
+
+  set medium(medium: ?string) {
+    this.params["medium"] = medium;
+  }
+
   createURL(): string {
     const urlHelper = new UrlHelper(this.params, this.secret);
 
