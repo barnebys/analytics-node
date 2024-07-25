@@ -10,4 +10,6 @@ declare type params = {
   d5: ?string,
   sp: ?boolean,
   dt: ?string,
+  source: ?string,
+  medium: ?string,
 };

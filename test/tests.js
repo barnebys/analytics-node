@@ -51,6 +51,58 @@ describe("URL Builder with sponsored flag", () => {
       "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&dt=1&s=db8c86fbbf9dce90b837a976feff302b"
     );
   });
+
+  it("should handle source dimension", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.dimension1 = "a";
+    urlBuilder.dimension2 = "b";
+    urlBuilder.dimension3 = "c";
+    urlBuilder.isSponsored = true;
+    urlBuilder.source = "searchalert";
+
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&source=searchalert&s=51b3fc328e72412097f15d8e0a895688"
+    );
+  });
+
+  it("should handle medium dimension", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.dimension1 = "a";
+    urlBuilder.dimension2 = "b";
+    urlBuilder.dimension3 = "c";
+    urlBuilder.isSponsored = true;
+    urlBuilder.medium = "email";
+
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&medium=email&s=ba301abd4b85e5ffea877548af6ab53e"
+    );
+  });
+
+  it("should handle source and medium dimensions", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.dimension1 = "a";
+    urlBuilder.dimension2 = "b";
+    urlBuilder.dimension3 = "c";
+    urlBuilder.isSponsored = true;
+    urlBuilder.source = "searchalert";
+    urlBuilder.medium = "email";
+
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&source=searchalert&medium=email&s=5f9f1ee65a6fd9d8d0303b01c10c22d3"
+    );
+  });
 });
 
 describe("Affiliate URLs 1", () => {
