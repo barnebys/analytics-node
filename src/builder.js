@@ -69,6 +69,10 @@ module.exports = class UrlBuilder {
     this.params["medium"] = medium;
   }
 
+  set fpVerified(verified: boolean) {
+    this.params["fpv"] = verified ? 1 : 0;
+  }
+
   createURL(): string {
     const urlHelper = new UrlHelper(this.params, this.secret);
 

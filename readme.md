@@ -27,6 +27,7 @@ urlBuilder.isSponsored = <boolean>;
 urlBuilder.dealType = <string>;
 urlBuilder.source = <string>; // e.g. "searchalert", "widget", "facebook", "google"
 urlBuilder.medium = <string>; // e.g. "paid_social", "email" To be discussed, just a suggestion and not used yet
+urlBuilder.fpVerified = <boolean>; // Indicates if the fingerprint has been verified
 
 // Get the signed tracking URL
 const url = urlBuilder.createURL()
