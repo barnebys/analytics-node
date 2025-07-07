@@ -103,6 +103,22 @@ describe("URL Builder with sponsored flag", () => {
       "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&sp=1&source=searchalert&medium=email&s=5f9f1ee65a6fd9d8d0303b01c10c22d3"
     );
   });
+
+  it("should handle fpVerified flag", () => {
+    const urlBuilder = new UrlBuilder("analytics.barnebys.sh", "test");
+    urlBuilder.programId = "123";
+    urlBuilder.kind = "click-test";
+    urlBuilder.url = "http://www.barnebys.com/";
+    urlBuilder.dimension1 = "a";
+    urlBuilder.dimension2 = "b";
+    urlBuilder.dimension3 = "c";
+    urlBuilder.fpVerified = true;
+
+    assert.equal(
+      urlBuilder.createURL(),
+      "https://analytics.barnebys.sh/?p=123&k=click-test&url=http%3A%2F%2Fwww.barnebys.com%2F&d1=a&d2=b&d3=c&fpv=1&s=bda34e0e01b430db8731a58fa3548a09"
+    );
+  });
 });
 
 describe("Affiliate URLs 1", () => {

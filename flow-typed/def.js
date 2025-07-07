@@ -12,4 +12,5 @@ declare type params = {
   dt: ?string,
   source: ?string,
   medium: ?string,
+  fpv: ?boolean
 };
